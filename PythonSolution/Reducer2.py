@@ -15,7 +15,13 @@ def outputPatentInfo():
 
     if current_patent != None and current_patent_info != None:
         try:
-            print("%s,%s,%d" % (current_patent, current_patent_info, len(current_patent_citations)))
+            citation_state = current_patent_info[4];
+            citation_state = citation_state[1:-1];
+            if len(citation_state) == 0:
+                citation_state = None
+            for citing_value in current_patent_citations:
+                citing_value = citing_value.split('\t')
+                print(citing_value[0], citing_value[1], current_patent, citation_state, sep = ',')
         except ValueError:
             #
             # Something wrong in number format
@@ -62,7 +68,7 @@ def main():
         if len(fields) > 1:
             current_patent_info = fields
         else:
-            current_patent_citations.append(value)
+            current_patent_citations.append(value[0:-1])
         
     # do not forget to output the last word if needed!
     outputPatentInfo()

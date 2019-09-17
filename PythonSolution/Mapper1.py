@@ -6,26 +6,24 @@ import sys
 # input comes from STDIN (standard input)
 for line in sys.stdin:
     # split the line into CSV fields
-    line = line.strip()
     words = line.split(",")
-    if len(words) == 4:
+
+    if len(words) == 2:
         #
-        # It's the citation with state info intermediary
+        # It's a citation
         #
         try:
-            # Check if the states for citing & cited cities are the same
-            if (words[1] == words[3]):
-                print('%s\t%s' % (int(words[0]), 'y'))
+            print('%d\t%s' % (int(words[0]), words[1]), end='')
         except Exception as e:
             # improperly formed citation number
-            print("Exception ", e);
+            print("Exception ", e)
             pass
     else:
         #
         # It's patent info 
         #
         try:
-            print('%s\t%s' % (int(words[0]), ','.join(words[1:])))
+            print('%d\t%s' % (int(words[0]), ','.join(words[1:])), end='')
         except Exception as e:
             # improperly formed citation number
             print("Exception ", e)
