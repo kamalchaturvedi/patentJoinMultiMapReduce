@@ -14,7 +14,7 @@ for line in sys.stdin:
         #
         try:
             # Check if the states for citing & cited cities are the same
-            if (words[1] == words[3]):
+            if (words[1] == words[3] and words[1].strip()!= "None"):
                 print('%s\t%s' % (int(words[0]), 'y'))
         except Exception as e:
             # improperly formed citation number
