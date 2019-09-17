@@ -20,23 +20,23 @@ then
     exit 1
 fi
    
-rm -rf stream-output-step1
-rm -rf stream-output-step2
-rm -rf stream-output-final
+hdfs dfs -rm -rf stream-output-step1
+hdfs dfs -rm -rf stream-output-step2
+hdfs dfs -rm -rf stream-output-final
 
-hadoop jar $STREAM \
+hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
 	-mapper Mapper1.py \
 	-reducer Reducer1.py \
 	-file Mapper1.py -file Reducer1.py \
 	-input input -output stream-output-step1
 
-hadoop jar $STREAM \
+hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
 	-mapper Mapper1.py \
 	-reducer Reducer2.py \
 	-file Mapper1.py -file Reducer2.py \
 	-input input/apat63_99.txt -input stream-output-step1 -output stream-output-step2
 
-hadoop jar $STREAM \
+hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
 	-mapper CheckCitationCountMapper.py \
 	-reducer CheckCitationCountReducer.py \
 	-file CheckCitationCountMapper.py -file CheckCitationCountReducer.py \

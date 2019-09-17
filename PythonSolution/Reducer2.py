@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 """Reducer2.py"""
 
 from operator import itemgetter
