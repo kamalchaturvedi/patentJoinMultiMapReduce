@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-"""mapper.py"""
+#!/usr/bin/python
+"""Mapper1.py"""
 
 import sys
 

@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-"""reducer.py"""
+#!/usr/bin/python
+"""Reducer1.py"""
 
 from operator import itemgetter
 import sys
