@@ -21,7 +21,7 @@ def outputPatentInfo():
                 citation_state = None
             for citing_value in current_patent_citations:
                 citing_value = citing_value.split('\t')
-                print(citing_value[0], citing_value[1], current_patent, citation_state, sep = ',')
+                print("%s,%s,%s,%s" % (citing_value[0], citing_value[1], current_patent, citation_state))
         except ValueError:
             #
             # Something wrong in number format
