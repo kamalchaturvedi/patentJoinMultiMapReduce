@@ -13,7 +13,7 @@ for line in sys.stdin:
         # It's a citation
         #
         try:
-            print('%d\t%s' % (int(words[0]), words[1]), end='')
+            print('%d\t%s' % (int(words[0]), words[1]))
         except Exception as e:
             # improperly formed citation number
             print("Exception ", e)
@@ -23,7 +23,7 @@ for line in sys.stdin:
         # It's patent info 
         #
         try:
-            print('%d\t%s' % (int(words[0]), ','.join(words[1:])), end='')
+            print('%d\t%s' % (int(words[0]), ','.join(words[1:])))
         except Exception as e:
             # improperly formed citation number
             print("Exception ", e)
